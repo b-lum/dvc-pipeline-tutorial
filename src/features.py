@@ -3,7 +3,7 @@ import pandas as pd
 
 df = pd.read_csv("data/transformed/events.csv")
 
-df["duration_minutes"] = df["duration_seconds"].astype(float) / 60
+df["duration_minutes"] = df["duration_seconds"] / 60
 
 df["date"] = pd.to_datetime(df["date"])
 
