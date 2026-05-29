@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 
 df = pd.read_csv("data/raw/events.csv")
@@ -23,5 +24,5 @@ df["timestamp"] = pd.to_datetime(
 
 df["timestamp"] = df["timestamp"].dt.strftime("%Y-%m-%dT%H:%M:%S")
 
-
+os.makedirs("data/clean", exist_ok=True)
 df.to_csv("data/clean/events.csv", index=False)

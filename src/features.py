@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 
 df = pd.read_csv("data/transformed/events.csv")
@@ -10,4 +11,5 @@ df["weekday"] = df["date"].dt.day_name()
 
 df["date"] = df["date"].dt.strftime("%Y-%m-%d")
 
+os.makedirs("data/features", exist_ok=True)
 df.to_csv("data/features/events.csv", index=False)
